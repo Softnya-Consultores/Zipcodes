@@ -27,3 +27,7 @@ http://localhost:3000/api/v1/zipcodes/{zip-code}
 ```
 
 ***Nota:** arrojará un error si el código postal no existe registrado.*
+
+Ejemplos de captura:
+![Codigos postales en listado](img/zipcodes.jpg)
+![Codigo postal](img/zipcode-01000.jpg)
