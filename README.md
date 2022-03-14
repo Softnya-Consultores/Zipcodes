@@ -1,24 +1,29 @@
-# README
+# CODIGOS POSTALES DE MEXICO
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Esta es una api básica para consultar **códigos postales de México** desde **Rails**.
 
-Things you may want to cover:
+**Puntos a considerar:**
 
-* Ruby version
+1. La base de datos está implementada en SQLite para simplicidada de la información.
+2. Se implementaron los métodos CRUD para los códigos postales aunque realmente no es necesario cambiar nada.
+3. Esta es una lista de códigos postales de México actualizada a marzo de 2022.
+4. Por cuestión de "buenas prácticas" se mostrará la ruta con el prefijo "api/v1".
+5. Para ejecutar sólo hay que instalar dependencias y activar el servidor Rails
+   1. bundle update
+   2. rails s
 
-* System dependencies
+Rutas:
 
-* Configuration
+Listado  de códigos postales (limitado a 20):
 
-* Database creation
+```
+http://localhost:3000/api/v1/zipcodes
+```
 
-* Database initialization
+Buscar información de un código postal en específico:
 
-* How to run the test suite
+```
+http://localhost:3000/api/v1/zipcodes/{zip-code}
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+***Nota:** arrojará un error si el código postal no existe registrado.*
