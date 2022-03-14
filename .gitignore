@@ -7,8 +7,6 @@
 # Ignore bundler config.
 /.bundle
 
-/app.yaml
-
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -29,3 +27,4 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+app.yaml
