@@ -2,21 +2,39 @@ module Api
     module V1
         class ZipcodesController < ApplicationController
             def index
-                zipcodes = Zipcode.order('zipcode').limit(20);
-                render json: {
-                    status: 200,
-                    message: 'Zipcodes loaded',
-                    data: zipcodes
-                }, status: :ok
+                zipcodes = Zipcode.order('RANDOM()').limit(20);
+                if zipcodes
+                    render json: {
+                        data: zipcodes
+                    }, status: :ok
+                else
+                    render json: {
+                        status: 422,
+                        message: 'Invalid information',
+                        data: zipcodes
+                    }, status: :unprocessable_entity
+                end
             end
 
             def show
                 zipcode = Zipcode.find_by(zipcode: params[:id]);
-                render json: {
-                    status: 200,
-                    message: 'Zipcode loaded',
-                    data: zipcode
-                }, status: :ok
+                if zipcode
+                    render json: {
+                        zipcode: zipcode[:zipcode],
+                        locality: zipcode[:locality],
+                        federal_entity: zipcode[:federal_entity],
+                        settlements: {
+                            name:zipcode[:municipality]
+                        },
+                        municipality: zipcode[:municipality]
+                    }, status: :ok
+                else
+                    render json: {
+                        status: 422,
+                        message: 'Zipcode not valid',
+                        data: zipcode
+                    }, status: :unprocessable_entity
+                end
             end
 
             def create

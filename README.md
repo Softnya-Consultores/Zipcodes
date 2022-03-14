@@ -14,7 +14,7 @@ Esta es una api básica para consultar **códigos postales de México** desde **
 
 Rutas:
 
-Listado  de códigos postales (limitado a 20):
+Listado  de códigos postales (limitado a 20 registros aleatorios):
 
 ```
 http://localhost:3000/api/v1/zipcodes
